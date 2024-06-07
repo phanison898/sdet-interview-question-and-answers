@@ -199,3 +199,84 @@ public class Main {
 }
 
 ```
+
+### Synechron
+
+1. L1 Interview Java Coding Question
+
+   - Given a string containing duplicate words. Print each word along with number of times it's repeated
+   - Input = "automation is very good automation is very nice";
+   - Output = automation=2 is=2 very=2 good=1 nice=1
+   - Solution:
+
+   ```java
+   import java.util.*;
+
+   public class Main
+   {
+   	public static void main(String[] args) {
+   		String input = "automation is very good automation is very nice";
+
+   		// split using space
+   		String[] words = input.split(" ");
+
+   		// copy to list
+   		List<String> wordList = new ArrayList<String>();
+   		for(String word : words){
+   		    wordList.add(word);
+   		}
+
+   		//count repeated words
+   		int count = 1;
+
+   		// output
+   		StringBuilder output = new StringBuilder();
+
+   		//loop through words
+   		for(int i=0; i<wordList.size(); i++){
+   		    for(int j=i+1; j<wordList.size(); j++){
+   		        if(wordList.get(i).equals(wordList.get(j))){
+   		            count++;
+   		            wordList.remove(j);
+   		            j--;
+   		        }
+   		    }
+   		    output.append(wordList.get(i)+"="+count+" ");
+   		    count = 1;
+   		}
+   		System.out.print(output.toString().trim());
+   	}
+   }
+   ```
+
+2. L2 / Client Round:
+
+   - Check whether the given string is palindrom or not
+   - Input : "madam"
+   - Output : Palindrom
+   - Solution:
+
+   ```java
+   import java.util.Scanner;
+
+   public class Main
+   {
+       	public static void main(String[] args) {
+
+            System.out.print("Enter any string: ");
+       	    String input = new Scanner(System.in).next();
+
+       	    StringBuilder reverse = new StringBuilder();
+
+       	    for(int i=input.length()-1; i>=0; i--){
+       	        reverse.append(input.charAt(i));
+       	    }
+
+       	    if(input.equals(reverse.toString())){
+       	        System.out.print(input+" is Palindrom");
+       	    }else{
+       	        System.out.print(input+" is not Palindrom");
+       	    }
+       	}
+   }
+   ```
