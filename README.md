@@ -120,3 +120,82 @@ public class Main {
 }
 
 ```
+
+4. Copy one list's elements into another empty list using python
+
+- a = [1,2,3]
+- b = []
+- output : b = [1,2,3]
+- Method 1: Using List Comprehension
+
+```python
+a = [1, 2, 3]
+b = [x for x in a]
+print(b)  # Output: [1, 2, 3]
+```
+
+- Method 2: Using the **copy** Method
+
+```python
+a = [1, 2, 3]
+b = a.copy()
+print(b)  # Output: [1, 2, 3]
+
+```
+
+- Method3: Using Slicing
+
+```python
+a = [1, 2, 3]
+b = a[:]
+print(b)  # Output: [1, 2, 3]
+
+```
+
+- Method4: Using the **list** Constructor
+
+```python
+a = [1, 2, 3]
+b = list(a)
+print(b)  # Output: [1, 2, 3]
+
+```
+
+- Method5: Using the **extend** Method
+
+```python
+a = [1, 2, 3]
+b = []
+b.extend(a)
+print(b)  # Output: [1, 2, 3]
+
+```
+
+5. Copy one list's elements into another empty list using Java
+
+- Answer:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3};
+        int[] b = new int[a.length];
+
+        // Copy elements from a to b
+        for (int i = 0; i < a.length; i++) {
+            b[i] = a[i];
+        }
+
+        // Print the outputArray
+        System.out.print("b: [");
+        for (int i = 0; i < b.length; i++) {
+            System.out.print(b[i]);
+            if (i < b.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+    }
+}
+
+```
