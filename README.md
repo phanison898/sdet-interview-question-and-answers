@@ -4,6 +4,25 @@ Chronological Order
 
 #### Java coding interview questions which asked for the role of SDET
 
+### 1. Qentelli
+
+**1. Round-1 (Technical - L1):-**
+
+- Q1) Verify given number is Palindrome or not
+- Q2) Remove special characters from the string
+
+**2. Round-2 (Technical - L3):-**
+
+- Q1) Remove duplicate characters from the string
+- Q2) Given a string containing words separated by space. Now, reverse the each word without changing it's initial position (Ex: input = "my name is phani"; output= "ym eman si inahp";)
+
+**3. Round-3 (Client round):-**
+
+- Q1) Given a string, now, place each character in ascending order
+- Q2) Create a Java class for above problem and ask the input from the user and print it
+
+---
+
 ### 1. UST Global
 
 **1. Round-4 (Managerial):-** Remove duplicates from the given array of numbers without using Set or stream api
