@@ -1,10 +1,12 @@
 ### SDET Interview Question and Answers
 
-Chronological
+Chronological Order
 
-#### Java coding questions
+#### Java coding interview questions which asked for the role of SDET
 
-1. Remove duplicates from the given array of numbers without using Set or stream api
+### 1. UST Global
+
+**1. Round-4 (Managerial):-** Remove duplicates from the given array of numbers without using Set or stream api
 
 - Input : int[] array = {100, 3, 4, 16, 177, 134, 3, 16}
 - Output : {100, 3, 4, 16, 177, 134}
@@ -33,7 +35,7 @@ public class Main {
 
 ```
 
-- Approach-2 : In-Efficient way O(n^2) [I implemented this in interview]
+- Approach-2 : In-Efficient way O(n^2)
 
 ```java
 import java.util.*;
@@ -67,7 +69,7 @@ public class Main {
 
 ```
 
-2. Print below pattern
+**1. Round-3 (L3 - Technical):-** Print below pattern
 
 ```java
 *
@@ -93,7 +95,86 @@ public class Main {
 
 ```
 
-3. Given a string contains numbers separated by spaces. Print the sum of the numbers in the string?
+**2. Round-2 (L2 - Technical):-** Q1) Copy one list's elements into another empty list using python
+
+- a = [1,2,3] # input
+- b = [] # empty list
+- output : b = [1,2,3]
+- Method 1: Using List Comprehension
+
+  ```python
+  a = [1, 2, 3]
+  b = [x for x in a]
+  print(b)  # Output: [1, 2, 3]
+  ```
+
+- Method 2: Using the **copy** Method
+
+  ```python
+  a = [1, 2, 3]
+  b = a.copy()
+  print(b)  # Output: [1, 2, 3]
+
+  ```
+
+- Method3: Using Slicing
+
+  ```python
+  a = [1, 2, 3]
+  b = a[:]
+  print(b)  # Output: [1, 2, 3]
+
+  ```
+
+- Method4: Using the **list** Constructor
+
+  ```python
+  a = [1, 2, 3]
+  b = list(a)
+  print(b)  # Output: [1, 2, 3]
+
+  ```
+
+- Method5: Using the **extend** Method
+
+  ```python
+  a = [1, 2, 3]
+  b = []
+  b.extend(a)
+  print(b)  # Output: [1, 2, 3]
+
+  ```
+
+Q2) Copy one list's elements into another empty list using Java
+
+- Answer:
+
+  ```java
+  public class Main {
+      public static void main(String[] args) {
+          int[] a = {1, 2, 3};
+          int[] b = new int[a.length];
+
+          // Copy elements from a to b
+          for (int i = 0; i < a.length; i++) {
+              b[i] = a[i];
+          }
+
+          // Print the outputArray
+          System.out.print("b: [");
+          for (int i = 0; i < b.length; i++) {
+              System.out.print(b[i]);
+              if (i < b.length - 1) {
+                  System.out.print(", ");
+              }
+          }
+          System.out.println("]");
+      }
+  }
+
+  ```
+
+**3. Round-1 (L1 - Technical):-** Given a string contains numbers separated by spaces. Print the sum of the numbers in the string?
 
 - Answer
 
@@ -121,162 +202,83 @@ public class Main {
 
 ```
 
-4. Copy one list's elements into another empty list using python
+### 2. Synechron
 
-- a = [1,2,3]
-- b = []
-- output : b = [1,2,3]
-- Method 1: Using List Comprehension
+**1. Round-1 (L1 - Technical):-**
 
-```python
-a = [1, 2, 3]
-b = [x for x in a]
-print(b)  # Output: [1, 2, 3]
-```
-
-- Method 2: Using the **copy** Method
-
-```python
-a = [1, 2, 3]
-b = a.copy()
-print(b)  # Output: [1, 2, 3]
-
-```
-
-- Method3: Using Slicing
-
-```python
-a = [1, 2, 3]
-b = a[:]
-print(b)  # Output: [1, 2, 3]
-
-```
-
-- Method4: Using the **list** Constructor
-
-```python
-a = [1, 2, 3]
-b = list(a)
-print(b)  # Output: [1, 2, 3]
-
-```
-
-- Method5: Using the **extend** Method
-
-```python
-a = [1, 2, 3]
-b = []
-b.extend(a)
-print(b)  # Output: [1, 2, 3]
-
-```
-
-5. Copy one list's elements into another empty list using Java
-
-- Answer:
+- Given a string containing duplicate words. Print each word along with number of times it's repeated
+- Input = "automation is very good automation is very nice";
+- Output = automation=2 is=2 very=2 good=1 nice=1
+- Solution:
 
 ```java
-public class Main {
-    public static void main(String[] args) {
-        int[] a = {1, 2, 3};
-        int[] b = new int[a.length];
+import java.util.*;
 
-        // Copy elements from a to b
-        for (int i = 0; i < a.length; i++) {
-            b[i] = a[i];
-        }
+public class Main
+{
+	public static void main(String[] args) {
+		String input = "automation is very good automation is very nice";
 
-        // Print the outputArray
-        System.out.print("b: [");
-        for (int i = 0; i < b.length; i++) {
-            System.out.print(b[i]);
-            if (i < b.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println("]");
-    }
+		// split using space
+		String[] words = input.split(" ");
+
+		// copy to list
+		List<String> wordList = new ArrayList<String>();
+		for(String word : words){
+		    wordList.add(word);
+		}
+
+		//count repeated words
+		int count = 1;
+
+		// output
+		StringBuilder output = new StringBuilder();
+
+		//loop through words
+		for(int i=0; i<wordList.size(); i++){
+		    for(int j=i+1; j<wordList.size(); j++){
+		        if(wordList.get(i).equals(wordList.get(j))){
+		            count++;
+		            wordList.remove(j);
+		            j--;
+		        }
+		    }
+		    output.append(wordList.get(i)+"="+count+" ");
+		    count = 1;
+		}
+		System.out.print(output.toString().trim());
+	}
 }
-
 ```
 
-### Synechron
+**2. Round-2 (L2 - Technical):-**
 
-1. L1 Interview Java Coding Question
+- Check whether the given string is palindrom or not
+- Input : "madam"
+- Output : Palindrom
+- Solution:
 
-   - Given a string containing duplicate words. Print each word along with number of times it's repeated
-   - Input = "automation is very good automation is very nice";
-   - Output = automation=2 is=2 very=2 good=1 nice=1
-   - Solution:
+```java
+import java.util.Scanner;
 
-   ```java
-   import java.util.*;
+public class Main
+{
+    	public static void main(String[] args) {
 
-   public class Main
-   {
-   	public static void main(String[] args) {
-   		String input = "automation is very good automation is very nice";
+         System.out.print("Enter any string: ");
+    	    String input = new Scanner(System.in).next();
 
-   		// split using space
-   		String[] words = input.split(" ");
+    	    StringBuilder reverse = new StringBuilder();
 
-   		// copy to list
-   		List<String> wordList = new ArrayList<String>();
-   		for(String word : words){
-   		    wordList.add(word);
-   		}
+    	    for(int i=input.length()-1; i>=0; i--){
+    	        reverse.append(input.charAt(i));
+    	    }
 
-   		//count repeated words
-   		int count = 1;
-
-   		// output
-   		StringBuilder output = new StringBuilder();
-
-   		//loop through words
-   		for(int i=0; i<wordList.size(); i++){
-   		    for(int j=i+1; j<wordList.size(); j++){
-   		        if(wordList.get(i).equals(wordList.get(j))){
-   		            count++;
-   		            wordList.remove(j);
-   		            j--;
-   		        }
-   		    }
-   		    output.append(wordList.get(i)+"="+count+" ");
-   		    count = 1;
-   		}
-   		System.out.print(output.toString().trim());
-   	}
-   }
-   ```
-
-2. L2 / Client Round:
-
-   - Check whether the given string is palindrom or not
-   - Input : "madam"
-   - Output : Palindrom
-   - Solution:
-
-   ```java
-   import java.util.Scanner;
-
-   public class Main
-   {
-       	public static void main(String[] args) {
-
-            System.out.print("Enter any string: ");
-       	    String input = new Scanner(System.in).next();
-
-       	    StringBuilder reverse = new StringBuilder();
-
-       	    for(int i=input.length()-1; i>=0; i--){
-       	        reverse.append(input.charAt(i));
-       	    }
-
-       	    if(input.equals(reverse.toString())){
-       	        System.out.print(input+" is Palindrom");
-       	    }else{
-       	        System.out.print(input+" is not Palindrom");
-       	    }
-       	}
-   }
-   ```
+    	    if(input.equals(reverse.toString())){
+    	        System.out.print(input+" is Palindrom");
+    	    }else{
+    	        System.out.print(input+" is not Palindrom");
+    	    }
+    	}
+}
+```
