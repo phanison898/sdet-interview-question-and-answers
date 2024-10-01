@@ -19,6 +19,58 @@ Chronological Order
 **3. Round-3 (Client round):-**
 
 - Q1) Given a string, now, place each character in ascending order
+
+**Hard way**
+
+```java
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        String input = "Phani";
+
+        char[] array = input.toLowerCase().toCharArray();
+
+        for(int i=0; i<array.length-1; i++){
+            for(int j=0; j<array.length-i-1; j++){
+                if(((int) array[j]) > ((int) array[j+1])){
+                    char temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+                }
+            }
+        }
+
+        System.out.print(new String(array));
+    }
+}
+
+```
+
+**Easy way**
+
+```java
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        String input = "Phani";
+
+        char[] array = input.toLowerCase().toCharArray();
+
+        Arrays.sort(array);
+
+        String output = new String(array);
+
+        System.out.print(output);
+    }
+}
+
+```
+
 - Q2) Create a Java class for above problem and ask the input from the user and print it
 
 ---
