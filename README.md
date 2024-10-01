@@ -11,6 +11,48 @@ Chronological Order
 - Q1) Verify given number is Palindrome or not
 - Q2) Remove special characters from the string
 
+  **Hard way**
+
+  ```java
+
+  public class Main {
+
+      public static void main(String[] args) {
+
+          String input = "hgwddg&134^je234hbwhedeytr65R$%RbVYdtdr37VHF65*^&%vs12";
+
+          StringBuilder output = new StringBuilder();
+
+          for(char c : input.toCharArray()){
+              if(Character.isDigit(c) || Character.isLetter(c)){
+                  output.append(c);
+              }
+          }
+
+          System.out.print(output.toString());
+      }
+  }
+
+  ```
+
+  **Easy way**
+
+  ```java
+
+  public class Main {
+
+      public static void main(String[] args) {
+
+          String input = "hgwddg&134^je234hbwhedeytr65R$%RbVYdtdr37VHF65*^&%vs12";
+
+          String output = input.replaceAll("[^a-zA-Z0-9]","");
+
+          System.out.print(output);
+      }
+  }
+
+  ```
+
 **2. Round-2 (Technical - L3):-**
 
 - Q1) Remove duplicate characters from the string
@@ -20,56 +62,56 @@ Chronological Order
 
 - Q1) Given a string, now, place each character in ascending order
 
-**Hard way**
+  **Hard way**
 
-```java
-import java.util.*;
+  ```java
+  import java.util.*;
 
-public class Main {
+  public class Main {
 
-    public static void main(String[] args) {
+      public static void main(String[] args) {
 
-        String input = "Phani";
+          String input = "Phani";
 
-        char[] array = input.toLowerCase().toCharArray();
+          char[] array = input.toLowerCase().toCharArray();
 
-        for(int i=0; i<array.length-1; i++){
-            for(int j=0; j<array.length-i-1; j++){
-                if(((int) array[j]) > ((int) array[j+1])){
-                    char temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
-                }
-            }
-        }
+          for(int i=0; i<array.length-1; i++){
+              for(int j=0; j<array.length-i-1; j++){
+                  if(((int) array[j]) > ((int) array[j+1])){
+                      char temp = array[j];
+                      array[j] = array[j+1];
+                      array[j+1] = temp;
+                  }
+              }
+          }
 
-        System.out.print(new String(array));
-    }
-}
+          System.out.print(new String(array));
+      }
+  }
 
-```
+  ```
 
-**Easy way**
+  **Easy way**
 
-```java
-import java.util.*;
+  ```java
+  import java.util.*;
 
-public class Main {
+  public class Main {
 
-    public static void main(String[] args) {
-        String input = "Phani";
+      public static void main(String[] args) {
+          String input = "Phani";
 
-        char[] array = input.toLowerCase().toCharArray();
+          char[] array = input.toLowerCase().toCharArray();
 
-        Arrays.sort(array);
+          Arrays.sort(array);
 
-        String output = new String(array);
+          String output = new String(array);
 
-        System.out.print(output);
-    }
-}
+          System.out.print(output);
+      }
+  }
 
-```
+  ```
 
 - Q2) Create a Java class for above problem and ask the input from the user and print it
 
