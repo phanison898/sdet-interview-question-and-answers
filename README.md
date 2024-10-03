@@ -17,10 +17,12 @@
 
     public class Main {
         public static void main(String[] args) {
-            // converting String[] args to Integer[] integerArgs
-            Integer[] integerArgs = Arrays.stream(args).map(Integer::valueOf)toArray(Integer[]::new);
 
-            Util<Integer> util = new Util<>(integerArgs);
+            String[] stringArray = args;
+            Integer[] intArray = Arrays.stream(args).map(Integer::valueOf)toArray(Integer[]::new);
+            Character[] charArray = args[0].chars().mapToObj(c->(char)c).toArray(Character[]::new);
+
+            Util<Integer> util = new Util<>(array);
             util.printFrequencyOfElement();
         }
     }
