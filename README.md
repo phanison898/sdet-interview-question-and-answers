@@ -1,5 +1,54 @@
 ### SDET Interview Question and Answers
 
+1. <details>
+
+   <summary>Find the frequency of each element in the array</summary>
+
+   ```yml
+   - Description: Print the frequency of each element in the array in a single line separated by space
+   - Array type: Integer
+   - How: Enter the array of elements through Command Line
+   ```
+
+   ```java
+    import java.util.Map;
+    import java.util.LinkedHashMap;
+    import java.util.Arrays;
+
+    public class Main {
+        public static void main(String[] args) {
+            // converting String[] args to Integer[] integerArgs
+            Integer[] integerArgs = Arrays.stream(args).map(Integer::valueOf)toArray(Integer[]::new);
+
+            Util<Integer> util = new Util<>(integerArgs);
+            util.printFrequencyOfElement();
+        }
+    }
+
+    class Util<T> {
+
+        T[] array;
+
+        Util(T[] array) {
+        	this.array = array;
+        }
+
+        void printFrequencyOfElement() {
+        	Map<T,Integer> map = new LinkedHashMap<>();
+        	for(T element : array) {
+        		map.put(element, map.getOrDefault(element, 0) + 1);
+        	}
+
+        	for(Map.Entry<T, Integer> entry : map.entrySet()) {
+        		System.out.println(entry.getKey()+"="+entry.getValue());
+        	}
+        }
+
+    }
+   ```
+
+</details>
+
 If when we need to perform comparison operation between elements of an array, then follow the below approach
 
 **Approach:-1**
@@ -11,20 +60,20 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args){
+ public static void main(String[] args){
 
-         // this is input array. what ever type it is
-        int[] input = {100,2,56,124,52,67,423,7,102,2,124,33,67,52};
+      // this is input array. what ever type it is
+     int[] input = {100,2,56,124,52,67,423,7,102,2,124,33,67,52};
 
-        List<Integer> list = new ArrayList<Integer>();
-        for(Integer i : input){
-            if(!list.contains(i)){
-                 list.add(i);
-            }
-        }
+     List<Integer> list = new ArrayList<Integer>();
+     for(Integer i : input){
+         if(!list.contains(i)){
+              list.add(i);
+         }
+     }
 
-        System.out.print(list);
-    }
+     System.out.print(list);
+ }
 }
 
 ```
