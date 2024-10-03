@@ -6,7 +6,7 @@
 
    ```yml
    - Description: Print the frequency of each element in the array in a single line separated by space
-   - Array type: Integer
+   - Array types: String, Integer, Character
    - How: Enter the array of elements through Command Line
    ```
 
