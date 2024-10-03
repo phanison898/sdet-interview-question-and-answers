@@ -1,5 +1,70 @@
 ### SDET Interview Question and Answers
 
+If when we need to perform comparison operation between elements of an array, then follow the below approach
+
+**Approach:-1**
+
+```java
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args){
+
+         // this is input array. what ever type it is
+        int[] input = {100,2,56,124,52,67,423,7,102,2,124,33,67,52};
+
+        List<Integer> list = new ArrayList<Integer>();
+        for(Integer i : input){
+            if(!list.contains(i)){
+                 list.add(i);
+            }
+        }
+
+        System.out.print(list);
+    }
+}
+
+```
+
+**Approach:-2**
+
+```java
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args){
+
+         // this is input array. what ever type it is
+        int[] input = {100,2,56,124,52,67,423,7,102,2,124,33,67,52};
+
+        List<Integer> list = new ArrayList<Integer>();
+        for(Integer i : input){
+            list.add(i);
+        }
+
+        for(int i=0; i<list.size(); i++){
+            for(int j=i+1; j<list.size(); j++){
+                if(list.get(i)==list.get(j)){
+                    list.remove(j);
+                    j--;
+                }
+            }
+        }
+
+        System.out.print(list);
+
+    }
+
+}
+
+```
+
 Chronological Order
 
 #### Java coding interview questions which asked for the role of SDET
