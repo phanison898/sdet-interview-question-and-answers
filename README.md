@@ -49,6 +49,64 @@
     }
    ```
 
+2. <details>
+
+   <summary>Print duplicate elements of an array of generic type</summary>
+
+   ```yml
+   - Description: Create a generic class which accepts an array of generic type and print duplicate elements
+   - Array types: String, Integer, Character
+   - How: Enter the array of elements through Command Line
+   ```
+
+   ```java
+
+    import java.util.List;
+    import java.util.ArrayList;
+    import java.util.Arrays;
+
+    public class Main
+    {
+    	public static void main(String[] args) {
+
+    	    String[] array = args;
+            // Integer[] array = Arrays.stream(args).map(Integer::valueOf).toArray(Integer[]::new);
+            // Character[] array = args[0].chars().mapToObj(c->(char)c).toArray(Character[]::new);
+
+    		Util<String> util = new Util<>(array);
+    		util.printDuplicateElements();
+    	}
+    }
+
+    class Util<T> {
+
+        T[] array;
+
+        Util(T[] array){
+            this.array = array;
+        }
+
+        void printDuplicateElements(){
+
+            List<T> unique = new ArrayList<>();
+            List<T> duplicate = new ArrayList<>();
+
+            for(T element : array){
+                if(!unique.contains(element)){ // adds only unqie elements
+                   unique.add(element);
+                }else{ // adds duplicate element only one time
+                    if(!duplicate.contains(element)){
+                        duplicate.add(element);
+                    }
+                }
+            }
+
+            System.out.print(duplicate);
+        }
+    }
+
+   ```
+
 </details>
 
 If when we need to perform comparison operation between elements of an array, then follow the below approach
