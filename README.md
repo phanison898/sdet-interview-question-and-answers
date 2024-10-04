@@ -18,9 +18,9 @@
     public class Main {
         public static void main(String[] args) {
 
-            String[] stringArray = args;
-            Integer[] intArray = Arrays.stream(args).map(Integer::valueOf)toArray(Integer[]::new);
-            Character[] charArray = args[0].chars().mapToObj(c->(char)c).toArray(Character[]::new);
+            String[] array = args;
+            // Integer[] array = Arrays.stream(args).map(Integer::valueOf).toArray(Integer[]::new);
+            // Character[] array = args[0].chars().mapToObj(c->(char)c).toArray(Character[]::new);
 
             Util<Integer> util = new Util<>(array);
             util.printFrequencyOfElement();
