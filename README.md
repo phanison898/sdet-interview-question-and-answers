@@ -61,8 +61,8 @@
 
    ```java
 
-    import java.util.List;
-    import java.util.ArrayList;
+    import java.util.Set;
+    import java.util.HashSet;
     import java.util.Arrays;
 
     public class Main
@@ -88,16 +88,12 @@
 
         void printDuplicateElements(){
 
-            List<T> unique = new ArrayList<>();
-            List<T> duplicate = new ArrayList<>();
+            Set<T> unique = new HashSet<>();
+            Set<T> duplicate = new HashSet<>();
 
             for(T element : array){
-                if(!unique.contains(element)){ // adds only unqie elements
-                   unique.add(element);
-                }else{ // adds duplicate element only one time
-                    if(!duplicate.contains(element)){
-                        duplicate.add(element);
-                    }
+                if(!unique.add(element)){ // unique.add(element) returns false if trying to an element which is already added earlier
+                    duplicate.add(element);
                 }
             }
 
