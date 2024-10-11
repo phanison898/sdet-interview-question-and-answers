@@ -502,23 +502,14 @@ public class Main
 	public static void main(String[] args) {
 		String input = "automation is very good automation is very nice";
 
-		// split using space
-		String[] words = input.split(" ");
-
-		// copy to list
-		List<String> wordList = new ArrayList<String>();
-		for(String word : words){
-		    wordList.add(word);
-		}
-
-		//count repeated words
-		int count = 1;
-
+		List<String> wordList = new ArrayList<String>(Arrays.asList(input.split(" ")));
+		
 		// output
 		StringBuilder output = new StringBuilder();
 
 		//loop through words
 		for(int i=0; i<wordList.size(); i++){
+            int count = 1;
 		    for(int j=i+1; j<wordList.size(); j++){
 		        if(wordList.get(i).equals(wordList.get(j))){
 		            count++;
@@ -527,7 +518,6 @@ public class Main
 		        }
 		    }
 		    output.append(wordList.get(i)+"="+count+" ");
-		    count = 1;
 		}
 		System.out.print(output.toString().trim());
 	}
